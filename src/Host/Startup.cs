@@ -35,12 +35,8 @@ namespace Host
 
             services.AddMvc();
         
-            //X509Certificate2 signingCertificate = FindCertificateByThumbprint("45823A6F0133E057C84D24C6FCFE4A1650028591");
-            //var certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
-                //.AddSigningCredential(signingCertificate)
                 .AddInMemoryIdentityResources(Resources.GetIdentityResources())
                 .AddInMemoryApiResources(Resources.GetApiResources())
                 .AddInMemoryClients(Clients.Get())
@@ -86,34 +82,6 @@ namespace Host
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
-
-        public static X509Certificate2 FindCertificateByThumbprint(string findValue)
-        {
-            //if (env.IsDevelopment())
-            //{
-            //    var certPath = Path.Combine(".", "certs", "IdentityServer4Auth.pfx");
-
-            //    return new X509Certificate2(certPath, "secret");
-            //}
-            //else
-            //{
-                X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-
-                try
-                {
-                    store.Open(OpenFlags.ReadOnly);
-                    X509Certificate2Collection col = store.Certificates.Find(X509FindType.FindByThumbprint,
-                        findValue, false); // Don't validate certs, since the test root isn't installed.
-                    if (col == null || col.Count == 0)
-                        return null;
-                    return col[0];
-                }
-                finally
-                {
-
-                    store = null;
-                }
-            //}
-        }
+        
     }
 }

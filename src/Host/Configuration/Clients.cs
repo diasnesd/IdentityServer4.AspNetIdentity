@@ -54,10 +54,10 @@ namespace Host.Configuration
                     //AllowAccessTokensViaBrowser = true,
                     RequireConsent = true,
                     // where to redirect to after login
-                    RedirectUris = { "https://login.salesforce.com/services/authcallback/00D7F000006kRt2UAE/Expedo" },
+                    RedirectUris = { "https://login.salesforce.com/services/authcallback/00D7F000006lTwUUAU/Expedo",  "http://www.getpostman.com/oauth2/callback" },
                
                     // where to redirect to after logout
-                    PostLogoutRedirectUris = { "https://login.salesforce.com/services/authcallback/00D7F000006kRt2UAE/Expedo" },
+                    PostLogoutRedirectUris = { "https://login.salesforce.com/services/authcallback/00D7F000006lTwUUAU/Expedo" },
                     AllowedCorsOrigins = { "https://login.salesforce.com" },
 
                     EnableLocalLogin = true,
@@ -65,6 +65,7 @@ namespace Host.Configuration
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
                         "salesforce_api"
                     },
                     // secret for authentication

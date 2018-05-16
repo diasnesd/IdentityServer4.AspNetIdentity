@@ -39,9 +39,9 @@ namespace Host
 
                     result = userMgr.AddClaimsAsync(alice, new Claim[]{
                         new Claim(JwtClaimTypes.Name, "admin"),
-                        new Claim(JwtClaimTypes.GivenName, "admin"),
+                        new Claim(JwtClaimTypes.GivenName, "developer"),
                         new Claim(JwtClaimTypes.FamilyName, "innovent"),
-                        new Claim(JwtClaimTypes.Email, "admin@innoventsoftware.com.au"),
+                        new Claim(JwtClaimTypes.Email, "dustin@innoventsoftware.com.au"),
                         new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
                    }).Result;
                     if (!result.Succeeded)
